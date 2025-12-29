@@ -1,9 +1,11 @@
-from decision_engine.decision_engine_v1 import DecisionEngineV1
+from core.orchestrator import HikmaCore
 
-engine = DecisionEngineV1()
+hikma = HikmaCore()
 
 while True:
-    user_input = input("HIKMA > ")
-    if user_input.lower() in ["exit", "quit"]:
+    text = input("HIKMA > ")
+    if text.lower() in ["exit", "quit"]:
         break
-    print(engine.decide(user_input))
+
+    result = hikma.process(text)
+    print(result)
